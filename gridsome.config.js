@@ -6,20 +6,20 @@
 
 module.exports = {
   siteName: "Gridsome",
-  transformers: {
-    remark: {
-      externalLinksTarget: "_blank",
-      externalLinksRel: ["nofollow", "noopener", "noreferrer"],
-      anchorClassName: "icon icon-link",
-    },
-  },
 
   plugins: [
     {
       use: "@gridsome/source-filesystem",
       options: {
-        path: "posts/**/*.md",
-        typeName: "Post",
+        path: "blocks/**/*.md",
+        typeName: "Blocks",
+      },
+    },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        path: "segments/**/*.md",
+        typeName: "Segments",
       },
     },
     {
@@ -29,4 +29,11 @@ module.exports = {
       },
     },
   ],
+  transformers: {
+    remark: {
+      externalLinksTarget: "_blank",
+      externalLinksRel: ["nofollow", "noopener", "noreferrer"],
+      anchorClassName: "icon icon-link",
+    },
+  },
 };
